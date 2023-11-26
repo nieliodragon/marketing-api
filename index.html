@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            overflow-x: hidden;
+        }
+        .glow-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 10px;
+            background: linear-gradient(180deg, #e94560 0%, transparent 100%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-white font-sans text-center">
+    <div class="glow-line"></div>
+    <section class="p-10">
+        <h1 class="text-5xl mb-4 font-bold">Import your social media marketing data into spreadsheets automatically</h1>
+        <img src="heroimage.jpg" alt="Hero Image" class="rounded-lg shadow-lg mx-auto">
+    </section>
+
+    <section class="p-10">
+        <h2 class="text-4xl mb-4 font-bold">Dragon Data is 80% less expensive than competing services.</h2>
+    </section>
+
+    <section class="p-10">
+        <h2 class="text-4xl mb-4 font-bold">Get started at $100 / month:</h2>
+        <div class="bg-white text-black p-6 rounded-lg mx-auto w-1/3 shadow-lg border-4 border-purple-500">
+            <img src="profile-icon.png" alt="Profile Icon" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <ul class="list-disc list-inside text-xl font-medium text-left pl-5">
+                <li>10 user licenses</li>
+                <li>Access to all data sources</li>
+                <li>50 ad accounts per source</li>
+                <li>Monthly/weekly/daily refreshes</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="p-10">
+        <h3 class="text-4xl mb-4 font-bold">Enter your email for a free trial</h3>
+        <form class="flex justify-center items-center">
+            <input type="email" class="mb-4 p-2 rounded-lg w-1/3 text-black" placeholder="Enter your email">
+            <button type="submit" class="mb-4 bg-purple-900 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ml-4">Submit</button>
+        </form>
+    </section>
+</body>
+</html>
