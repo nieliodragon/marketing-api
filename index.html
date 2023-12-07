@@ -54,6 +54,8 @@
         document.getElementById('emailForm').addEventListener('submit', function(e) {
             e.preventDefault(); // prevent the default form submission
             var submitButton = document.getElementById('submitButton');
+            var emailInput = document.getElementById('emailInput');
+
             submitButton.textContent = '✔'; // change the button text to a check mark
         
             // send the form data to the Google Apps Script
