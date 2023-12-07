@@ -16,7 +16,7 @@
             left: 0;
             height: 100%;
             width: 10px;
-            background: linear-gradient(180deg, #e94560 0%, transparent 100%);
+            background: linear-gradient(180deg, transparent 0%, #e94560 100%);
             pointer-events: none;
         }
     </style>
@@ -24,33 +24,46 @@
 <body class="text-white font-sans text-center">
     <div class="glow-line"></div>
     <section class="p-10">
-        <h1 class="text-5xl mb-4 font-bold">Import your social media marketing data into spreadsheets automatically</h1>
-        <img src="heroimage.jpg" alt="Hero Image" class="rounded-lg shadow-lg mx-auto">
-    </section>
+        <h1 class="text-5xl mb-4 font-bold">Import marketing data into spreadsheets automatically</h1>
+        <h1 class="text-3xl mb-4 ">Cheap, simple, and reliable. Built for small businesses.</h1>
 
-    <section class="p-10">
-        <h2 class="text-4xl mb-4 font-bold">Dragon Data is 80% less expensive than competing services.</h2>
-    </section>
-
-    <section class="p-10">
-        <h2 class="text-4xl mb-4 font-bold">Get started at $100 / month:</h2>
-        <div class="bg-white text-black p-6 rounded-lg mx-auto w-1/3 shadow-lg border-4 border-purple-500">
-            <img src="profile-icon.png" alt="Profile Icon" class="w-16 h-16 rounded-full mx-auto mb-4">
-            <ul class="list-disc list-inside text-xl font-medium text-left pl-5">
-                <li>10 user licenses</li>
-                <li>Access to all data sources</li>
-                <li>50 ad accounts per source</li>
-                <li>Monthly/weekly/daily refreshes</li>
-            </ul>
-        </div>
-    </section>
+        <img src="flow.png" alt="Hero Image" class="rounded-3xl shadow-2xl mx-auto" style="width: 50%; height: auto;">
+        <section class="p-10">
+            <h2 class="text-4xl mb-4 font-bold">Dragon Data is 50% less expensive than competing services.</h2>
+            <h2 class="text-4xl mb-4">Get started at $250 / month:</h2>
+            <div class="bg-white text-black p-6 rounded-lg mx-auto w-1/3 shadow-lg border-4 border-purple-500">
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Profile Icon" class="w-16 h-16 rounded-full mx-auto mb-4">
+                <ul class="list-disc list-inside text-xl font-medium text-left pl-5">
+                    <li>10 user licenses</li>
+                    <li>Access to all data sources</li>
+                    <li>50 ad accounts per source</li>
+                    <li>Monthly/weekly/daily refreshes</li>
+                </ul>
+            </div>
+        </section>
 
     <section class="p-10">
         <h3 class="text-4xl mb-4 font-bold">Enter your email for a free trial</h3>
         <form class="flex justify-center items-center">
             <input type="email" class="mb-4 p-2 rounded-lg w-1/3 text-black" placeholder="Enter your email">
-            <button type="submit" class="mb-4 bg-purple-900 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ml-4">Submit</button>
+            <button type="submit" class="mb-4 bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded ml-4">Submit</button>
         </form>
     </section>
+
+    <script>
+    window.addEventListener('scroll', function() {
+    var scrollPosition = window.scrollY;
+    var windowHeight = window.innerHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+    var scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) / 2; // divide by 2 to make the gradient more gradual
+    var redIntensity = Math.round(scrollPercentage * 139); // adjust the maximum red intensity to match the brighter purple color
+    var greenIntensity = Math.round(scrollPercentage * 92); // adjust the maximum green intensity to match the brighter purple color
+    var blueIntensity = Math.round(scrollPercentage * 246); // adjust the maximum blue intensity to match the brighter purple color
+    var glowLine = document.querySelector('.glow-line');
+    glowLine.style.height = documentHeight + 'px'; // set the height of the glow-line to the full document height
+    glowLine.style.background = 'linear-gradient(180deg, rgb(26, 26, 46) 0%, rgb(' + redIntensity + ', ' + greenIntensity + ', ' + blueIntensity + ') 100%)';
+});
+    </script>
+
 </body>
 </html>
