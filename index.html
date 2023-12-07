@@ -57,14 +57,15 @@
             var emailInput = document.getElementById('emailInput');
         
             submitButton.textContent = '✔'; // change the button text to a check mark
-        
+            emailInput.value = ''; // clear the email input field
+            
             // send the form data to the Google Apps Script
             fetch(e.target.action, {
                 method: 'POST',
                 body: new FormData(e.target), // create a FormData object from the form
             })
             .then(function() {
-                emailInput.value = ''; // clear the email input field
+              
         
                 // after 1 second, change the button text back to 'Submit'
                 setTimeout(function() {
