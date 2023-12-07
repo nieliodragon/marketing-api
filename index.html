@@ -42,28 +42,45 @@
             </div>
         </section>
 
-    <section class="p-10">
-        <h3 class="text-4xl mb-4 font-bold">Enter your email for a free trial</h3>
-        <form class="flex justify-center items-center">
-            <input type="email" class="mb-4 p-2 rounded-lg w-1/3 text-black" placeholder="Enter your email">
-            <button type="submit" class="mb-4 bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded ml-4">Submit</button>
-        </form>
-    </section>
-
-    <script>
-    window.addEventListener('scroll', function() {
-    var scrollPosition = window.scrollY;
-    var windowHeight = window.innerHeight;
-    var documentHeight = document.documentElement.scrollHeight;
-    var scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) / 2; // divide by 2 to make the gradient more gradual
-    var redIntensity = Math.round(scrollPercentage * 139); // adjust the maximum red intensity to match the brighter purple color
-    var greenIntensity = Math.round(scrollPercentage * 92); // adjust the maximum green intensity to match the brighter purple color
-    var blueIntensity = Math.round(scrollPercentage * 246); // adjust the maximum blue intensity to match the brighter purple color
-    var glowLine = document.querySelector('.glow-line');
-    glowLine.style.height = documentHeight + 'px'; // set the height of the glow-line to the full document height
-    glowLine.style.background = 'linear-gradient(180deg, rgb(26, 26, 46) 0%, rgb(' + redIntensity + ', ' + greenIntensity + ', ' + blueIntensity + ') 100%)';
-});
-    </script>
+        <section class="p-10">
+            <h3 class="text-4xl mb-4 font-bold">Enter your email for a free trial</h3>
+            <form id="emailForm" action="https://script.google.com/macros/s/AKfycbyfyuSx9LeKB3ANTqb8eW39WqCNaeoUsHfc2bJazLlrPZzbbga1J_mXd7-m7AH12nB7pw/exec" method="post" class="flex justify-center items-center">
+                <input type="email" name="email" class="mb-4 p-2 rounded-lg w-1/3 text-black" placeholder="Enter your email">
+                <button id="submitButton" type="submit" class="mb-4 bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded ml-4">Submit</button>
+            </form>
+        </section>
+        
+        <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // prevent the default form submission
+            var submitButton = document.getElementById('submitButton');
+            submitButton.textContent = '✔'; // change the button text to a check mark
+        
+            // send the form data to the Google Apps Script
+            fetch(e.target.action, {
+                method: 'POST',
+                body: new FormData(e.target), // create a FormData object from the form
+            });
+        
+            // after 1 second, change the button text back to 'Submit'
+            setTimeout(function() {
+                submitButton.textContent = 'Submit';
+            }, 1000);
+        });
+        
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var documentHeight = document.documentElement.scrollHeight;
+            var scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) / 2; // divide by 2 to make the gradient more gradual
+            var redIntensity = Math.round(scrollPercentage * 139); // adjust the maximum red intensity to match the brighter purple color
+            var greenIntensity = Math.round(scrollPercentage * 92); // adjust the maximum green intensity to match the brighter purple color
+            var blueIntensity = Math.round(scrollPercentage * 246); // adjust the maximum blue intensity to match the brighter purple color
+            var glowLine = document.querySelector('.glow-line');
+            glowLine.style.height = documentHeight + 'px'; // set the height of the glow-line to the full document height
+            glowLine.style.background = 'linear-gradient(180deg, rgb(26, 26, 46) 0%, rgb(' + redIntensity + ', ' + greenIntensity + ', ' + blueIntensity + ') 100%)';
+        });
+        </script>
 
 </body>
 </html>
