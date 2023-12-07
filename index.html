@@ -52,27 +52,25 @@
         
         <script>
         document.getElementById('emailForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // prevent the default form submission
-            var submitButton = document.getElementById('submitButton');
-            var emailInput = document.getElementById('emailInput');
-        
-            submitButton.textContent = '✔'; // change the button text to a check mark
-            emailInput.value = ''; // clear the email input field
-            
-            // send the form data to the Google Apps Script
-            fetch(e.target.action, {
-                method: 'POST',
-                body: new FormData(e.target), // create a FormData object from the form
-            })
-            .then(function() {
-              
-        
-                // after 1 second, change the button text back to 'Submit'
-                setTimeout(function() {
-                    submitButton.textContent = 'Submit';
-                }, 1000);
+                e.preventDefault(); // prevent the default form submission
+                var submitButton = document.getElementById('submitButton');
+                var emailInput = document.getElementById('emailInput');
+
+                submitButton.textContent = '✔'; // change the button text to a check mark
+                emailInput.value = ''; // clear the email input field
+
+                // send the form data to the Google Apps Script
+                fetch(e.target.action, {
+                    method: 'POST',
+                    body: new FormData(e.target), // create a FormData object from the form
+                })
+                .finally(function() {
+                    // after 1 second, change the button text back to 'Submit'
+                    setTimeout(function() {
+                        submitButton.textContent = 'Submit';
+                    }, 400);
+                });
             });
-        });
         </script>
 
 </body>
