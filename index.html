@@ -61,6 +61,8 @@
                 method: 'POST',
                 body: new FormData(e.target), // create a FormData object from the form
             });
+
+            emailInput.value = ''; 
         
             // after 1 second, change the button text back to 'Submit'
             setTimeout(function() {
